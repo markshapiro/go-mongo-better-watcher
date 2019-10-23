@@ -76,5 +76,4 @@ How many times should the library retry to process the message before discarding
 2) If your message handler runs too long, it will delay the handling of next message, in this case it would be better to forward the messages into some queue.
 
 ### TODO
-I had an idea to balance out updates across multiple listening watchers (instead of using only one at a time) by assigning unique number 0 to N-1 to each instance.
-Each instance will accept only update messages whose `_id` field yields value equal to instance number when applied by modulo N (using watch pipeline), since mongo appends random number to `_id`, it should spread the messages evenly. In order to apply modulo I would have to convert `_id` to number somehow, and conversions are only available since mongo version 4.
+Implement proper horizontal scaling as described here: https://stackoverflow.com/questions/54295043/what-is-a-good-horizontal-scaling-strategy-for-a-mongodb-change-stream-reader
