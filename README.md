@@ -1,5 +1,5 @@
 While working with mongo watchers, I had to do a lot of additional work scaling it out and managing resume tokens.
-<br>I had to make sure that each message is processed only once, since mongo watcher updates are broadcasted in fanout mode which results in messages being processed multiple times if you scale the watchers on mutliple servers.
+<br>I had to make sure that each message is processed only once, since mongo watcher updates are broadcasted in fanout mode which results in messages being processed multiple times if you scale the watchers on mutliple servers, and I didn't want to manage additional single server dedicated only to updates.
 
 I decided to write a library to run multiple watcher instances and still handle each message once, and manage resume token internally, so that it proceeds to read after last successfuly handled message.
 
