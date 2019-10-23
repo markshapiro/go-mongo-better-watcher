@@ -127,7 +127,7 @@ next:
 		stopRefreshing(endSignalChan)
 		err := lock.Release()
 
-		// to prevent obtaining lock imediately while other instances may be waiting
+		// to prevent obtaining lock immediately while other instances may be waiting
 		time.Sleep(LOCK_OBTAIN_RETRY_TIME)
 
 		if err != nil {
