@@ -77,4 +77,4 @@ How many times should the library retry to process the message before discarding
 
 ### TODO
 I had an idea to balance out updates across multiple listening watchers (instead of using only one at a time) by assigning unique number 0 to N-1 to each instance.
-Each instance will filter out (using watch pipeline) only updates whose `_id` field yields value equal to instance number when applied by modulo N, since mongo appends random number to `_id`, it should spread the messages evenly. In order to apply modulo I would have to convert `_id` to number somehow, and conversions are only available since mongo version 4.
+Each instance will accept only update messages whose `_id` field yields value equal to instance number when applied by modulo N (using watch pipeline), since mongo appends random number to `_id`, it should spread the messages evenly. In order to apply modulo I would have to convert `_id` to number somehow, and conversions are only available since mongo version 4.
