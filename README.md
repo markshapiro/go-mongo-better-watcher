@@ -76,4 +76,5 @@ How many times should the library retry to process the message before discarding
 2) If your message handler runs too long, it will delay the handling of next message, in this case it would be better to forward the messages into some queue.
 
 ### TODO
-Implement proper horizontal scaling as described here: https://stackoverflow.com/questions/54295043/what-is-a-good-horizontal-scaling-strategy-for-a-mongodb-change-stream-reader
+There is an idea for proper solution for horizontal scaling described here: https://stackoverflow.com/questions/54295043/what-is-a-good-horizontal-scaling-strategy-for-a-mongodb-change-stream-reader
+<br>but it requires mongo version 4 in order to convert `_id` to string before applying regex.
